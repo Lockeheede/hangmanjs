@@ -1,61 +1,58 @@
-let word = prompt("Welcome to Hangman! Player 1, please enter a word for Player 2 to guess").toUpperCase();
 
-let revealedLetters = new Array(word.length);
-revealedLetters.fill(false);
+    let word = prompt("Welcome to Hangman! Player 1, please enter a word for Player 2 to guess").toUpperCase();
 
-let guess;
+    let revealedLetters = new Array(word);
+    revealedLetters.fill(false);
 
-const maxStrikes = 6;
-let strikes = 0;
+    const maxStrikes = 6;
+    let strikes = 0;
 
-let strikeLetters = new Array(maxStrikes);
+    let strikeLetters = new Array(maxStrikes);
 
-drawWordProgress();
-processGuess();
+    let currentWord = document.getElementById("hangman-words");
+    currentWord.innerHTML = "The current word has " + word.length + " letters!";
+
+    const formElement = document.getElementById("hangman-form");
+    formElement.addEventListener("submit", processGuess);
 
 function drawStrikeLetters() {
 
 }
 
-function drawWordProgress(guess) {
-    let str = '';
+function drawWordProgress(inputValue) {
 
-    for (let letter of word) {
-        if (letter == guess) {
-            str += letter;
-        } else {
-            str += '-';
+    for (i = 0; i <= revealedLetters.length; i++) {
+        if (word[i] == inputValue.toUpperCase) {
+            revealedLetters[i] = inputValue;
+
+            const newHTMLElement = document.createElement("h4");
+            newHTMLElement.innerHTML = revealedLetters[i];
+            document.getElementById("output").appendChild(newHTMLElement);
         }
     }
 
-    alert(str);
+
+    
 }
 
 function drawGallows() {
 
 }
 
-function processGuess() {
-    alert("The current word has " + word.length + " letters!");
+function processGuess(event) {
+    event.preventDefault();
 
-    while (strikes < maxStrikes) {
-        let guess = prompt("Player 2, guess a letter").toUpperCase();
+    const inputValue = document.getElementById("guessInput");
 
-        if (word.includes(guess)) {
-            alert("That letter is correct!");
-            drawWordProgress(guess);
-           
+        if (word.includes(inputValue)) {
+            drawWordProgress(inputValue);
         } else {
-            alert("That letter is incorrect!");
             drawGallows();
             strikes++;
             drawStrikeLetters();
         }
-
-        if (strikes < maxStrikes) {
-
-        } else {
-            alert("The game is over!");
-        }
+    
+    if (strikes === maxStrikes) {
+        alert("The game is over!");
     }
-}
+    }
