@@ -1,0 +1,75 @@
+body{
+    
+}
+
+div, image, span, form {
+    display: flex;
+}
+
+
+
+#hangman-wrap {
+    display: flex;
+    margin-top: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hangman-image-wrap{
+
+}
+
+#hangman-image{
+
+}
+
+#hangman-form-wrap{
+    display: flex;
+    margin-left: 150px;
+}
+
+#hangman-form{
+
+}
+
+#guessInput {
+    width: 5%;
+}
+
+#hangman-guess-wrap{
+    margin-top: 20px;
+    letter-spacing: 10px;
+}
+
+#hangman-strikes-wrap{
+
+}
+
+#hangman-message {
+
+}
+
+.strike-letter {
+
+}
+
+.message-info{
+    color: blue;
+}
+
+.message-warning {
+    color: darkgoldenrod;
+}
+
+.message-victory {
+    color: green;
+}
+
+.message-loss {
+    color: red;
+}
+
+.end-game{
+
+}

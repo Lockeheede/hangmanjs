@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Hangman!</title>
-        <link rel="stylesheet" href="styles/style.css">
-    </head>
-    <body>
-        <div id="hangman-wrap">
-            <div id="hangman-left">
-                <img id="" />
-            </div>
 
-            <div id="hangman-right">
-                <form id="hangman-form">
-                    <input name="guessForm" id="guessInput" />
-                    <input type="submit" />
-                </form>
-                <p> </p>
-                <div id="hangman-words"></div>
-                <p> </p>
-                <div id="hangman-char"></div>
+<head>
+    <title>Hangman!</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
 
-                <div id="strike-letters"></div>
-                <div id="output"></div>
-            </div>
-
-
-            <script src="scripts/script.js"></script>
+<body>
+    <div id="hangman-wrap">
+        <div id="hangman-image-wrap">
+            <img id="hangman-image" src="images/strike-0.png" />
         </div>
-    </body>
-	
-	
+
+        <div id="hangman-form-wrap">
+            <form id="hangman-form">
+                <input name="guessForm" id="guessInput" autocomplete="off" />
+                <input type="submit" />
+            </form>
+            <br>
+        </div>
+
+        <div id="hangman-guess-wrap">
+            <br>
+        </div>
+
+        <div id="hangman-strikes-wrap">
+            <br>
+        </div>
+
+
+        <div id="hangman-message"></div>
+
+    </div>
+    <script src="scripts/script.js"></script>
+
+</body>
 </html>

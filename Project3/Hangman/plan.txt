@@ -1,0 +1,17 @@
+THE MASTERPLAN
+
+[X] define the guessed word
+[X] limit the string input size (10)
+[]* let the user change the difficulty level
+[X] have the word be displayed as an array of <span id="letter-#">_</span> elements matching the word length
+[X] implement guessed letter logic checking for correct input| cases:(correct entry, incorrect entry[strike], duplicate entry)
+[X] replace the _ with correctly guessed letters
+[X] handle strikes (increment strke value & diplayed incorrect guess)
+[X] update the image div with each incorrect guess (change the src attribute of the <img>)
+[X] handle loss conditions
+[] handle user messages
+    -> info (blue): new word length,
+    -> warning (yellow): the input word is longer than 10 chars, guess letter longer than 1 char, guessed letter not available (either correct or strike)
+    -> victory (green)
+    -> loss (red)
+[X]* add reset button upon game end (requires init function)
