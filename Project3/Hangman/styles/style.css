@@ -40,14 +40,15 @@ div, image, span, form {
 #hangman-guess-wrap{
     margin-top: 20px;
     letter-spacing: 10px;
+    font-size: 20px;
 }
 
-#hangman-strikes-wrap{
-
+#hangman-strikes-wrap {
+    font-size: 20px;
 }
 
 #hangman-message {
-
+    font-size: 20px;
 }
 
 .strike-letter {
