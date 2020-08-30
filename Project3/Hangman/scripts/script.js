@@ -39,8 +39,8 @@ while (!word) {
 word = word.toString().toUpperCase();
 checkWord(word);
 
-let correctLetters = new Set(word);
-correctLetters = Array.from(correctLetters);
+let revealedLetters = new Set(word);
+revealedLetters = Array.from(revealedLetters);
 
 drawWordProgress(word);
 
@@ -81,29 +81,29 @@ function drawGallows() {
 
 function processGuess(event) {
   event.preventDefault();
-    let inputValue = document.getElementById('guessInput').value.toUpperCase();
+    let guess = document.getElementById('guessInput').value.toUpperCase();
     document.getElementById("hangman-form").reset();
-    if (inputValue.length === 1) {
-        if (allLetter(inputValue)) {
-            let chosenLetterIndex = availableLetters.indexOf(inputValue);
-            if (chosenLetterIndex != -1) {
+    if (guess.length === 1) {
+        if (allLetter(guess)) {
+            let revealedLetterIndex = availableLetters.indexOf(guess);
+            if (revealedLetterIndex != -1) {
                 //Remove inputValue from availableLetters array
-                availableLetters.splice(chosenLetterIndex, 1);
-                let correctLetterIndex = correctLetters.indexOf(inputValue);
+                availableLetters.splice(revealedLetterIndex, 1);
+                let correctLetterIndex = revealedLetters.indexOf(guess);
                 if (correctLetterIndex != -1) {
                     //Replace '_' with inputValue
                     displayMessage("That letter is correct!", 'info');
-                    let span = document.getElementsByClassName('guessed-letter-' + inputValue);
+                    let span = document.getElementsByClassName('guessed-letter-' + guess);
                     console.log(word);
                     for (var letter in span) {
                             console.log(letter);
                             console.log(word[letter]);
-                            span[letter].innerHTML = inputValue;
+                            span[letter].innerHTML = guess;
                         }
-                    correctLetters.splice(correctLetterIndex, 1);
+                    revealedLetters.splice(correctLetterIndex, 1);
                 } else {
                     displayMessage("That letter is incorrect!", 'warning');
-                    drawStrikeLetter(inputValue);
+                    drawStrikeLetter(guess);
                     strikes++;
                     drawGallows();
                 }
@@ -127,8 +127,8 @@ function processGuess(event) {
   //case: valid - check if indexOf(value) is true within the alphabet array & continuing if so
   //case: correct - check indexOf(value) against the correctLetters array & replace the innterHtml with guessed letters & remove the letter from both alphabet & correctLetter arrays
     //case: incorrect - if the correct check fails: add the span with a crossed out letter, draw the gallows, increase the strike count
-    console.log(correctLetters.length);
-    if (correctLetters.length == 0) {
+    console.log(revealedLetters.length);
+    if (revealedLetters.length == 0) {
         displayMessage('The game is over! You Win!', 'victory');
         setTimeout(resetGame, 3000);
     }
@@ -180,5 +180,5 @@ function displayMessage(message, type) {
 
 // let alphabet = []
 // let word = [[],[],[],[],[]]
-// let correctLetters = new Set(word)
+// let availableLetters = new Set(word)
 // let strikeLetters = []
